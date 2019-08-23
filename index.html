@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+ 
+
+</head>
+
+<body>
+    <form>
+	<div  class="field_wrapper">
+		  <div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+			<button type="button" class="btn btn-primary add_input_button">Submit</button>
+	  </div>
+	</form>
+	
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+
+        var max_fields = 16;
+        var add_input_button = $('.add_input_button');
+        var field_wrapper = $('.field_wrapper');
+        var input_count = 4;
+        // html code with input_count(works but stays on 4)
+		console.log("Outside ======> " + input_count); // Executes only on page load
+		// Add button dynamically
+        $(add_input_button).click(function(){
+            if(input_count < max_fields){
+				input_count++;
+				var new_field_html = '<div class="form-group"><button type="button" class="btn btn-primary" class="add_input_button">Submit-' + input_count + '</button></div>';
+                $(field_wrapper).append(new_field_html);
+				console.log("Inside ======> " + input_count); // Executed everytime the button is clicked
+            }
+        });
+		console.log("Outside-2 ======> " + input_count); // Executed only on page load
+	});
+
+</script>
+</body>
+</html>
